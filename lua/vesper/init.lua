@@ -300,7 +300,7 @@ local function set_groups()
 
 	-- overrides
 	groups =
-		vim.tbl_extend("force", groups, type(config.overrides) == "function" and config.overrides() or config.overrides)
+		vim.tbl_extend("force", groups, type(config.overrides) == "function" and config.overrides(colors) or config.overrides)
 
 	for group, parameters in pairs(groups) do
 		vim.api.nvim_set_hl(0, group, parameters)
